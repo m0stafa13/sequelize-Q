@@ -8,7 +8,7 @@ export const userModel = sequelize.define("user", {
         allowNull: false,
         validate: {
             checkNameLength(value) {
-                if (value.length < 2) {
+                if (value.length <= 2) {
                     throw new Error("name must be greater than 2 char")
                 }
             }

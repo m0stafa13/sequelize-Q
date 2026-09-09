@@ -17,7 +17,7 @@ try {
     console.log(error, "from main js");
 }
 // user router 
-app.use("/auth",userRouter)
+app.use("/auth", userRouter)
 
 
 
