@@ -2,6 +2,7 @@ import express from 'express'
 import { connectionDB, sequelize } from './database/connection.js'
 import { relations } from './database/relation.js'
 import userRouter from './modules/users/user.controller.js'
+import postRouter from './modules/post/posts.controller.js'
 const app = express()
 app.use(express.json())
 
@@ -18,6 +19,8 @@ try {
 }
 // user router 
 app.use("/auth", userRouter)
+//post router
+app.use("/posts", postRouter)
 
 
 
