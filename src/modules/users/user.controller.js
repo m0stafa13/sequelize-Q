@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { findUserByEmail, getUserByPk, signUp, updateUser } from "./post.service.js";
+import { findUserByEmail, getUserByPk, signUp, updateUser } from "./user.service.js";
 
 const router = Router()
 // sign up 

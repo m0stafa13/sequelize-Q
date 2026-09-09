@@ -1,7 +1,7 @@
 import express from 'express'
 import { connectionDB, sequelize } from './database/connection.js'
 import { relations } from './database/relation.js'
-import userRouter from './modules/posts/post.controller.js'
+import userRouter from './modules/users/user.controller.js'
 const app = express()
 app.use(express.json())
 

@@ -41,24 +41,33 @@ export const signUp = async (userData) => {
 // update user data
 export const updateUser = async ({ id }, userData) => {
     let { name, password, email, role } = userData
-    let [user] = await userModel.update({ email, password, role, name }, {
-        where: {
-            id
+    try {
+        let [user] = await userModel.update({ email, password, role, name }, {
+            where: {
+                id
+            }
+        })
+        if (user) {
+            return {
+                response: {
+                    message: "user data updated successfully "
+                },
+                statusCode: 200
+            }
+        } else {
+            return {
+                response: {
+                    message: "user not found"
+                },
+                statusCode: 404
+            }
         }
-    })
-    if (user) {
+    } catch (error) {
         return {
             response: {
-                message: "user data updated successfully "
+                error: error.errors[0].message
             },
-            statusCode: 200
-        }
-    } else {
-        return {
-            response: {
-                message: "user not found"
-            },
-            statusCode: 404
+            statusCode: 400
         }
     }
 
@@ -84,7 +93,11 @@ export const findUserByEmail = async ({ email }) => {
 }
 // get user by Pk 
 export const getUserByPk = async ({ id }) => {
-    let user = await userModel.findByPk(id)
+    let user = await userModel.findByPk(id, {
+        attributes: {
+            exclude: ["role", "deletedAt"]
+        }
+    })
     if (user) {
         return {
             response: {
