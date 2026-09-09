@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-"running":"node  --watch ./src/main.js"  },
+    "running": "node  --watch ./src/main.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
