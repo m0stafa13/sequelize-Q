@@ -35,3 +35,5 @@ app.all('/*path', (req, res) => {
 app.listen(3000, () => {
     console.log("server is working on port 3000");
 })
+//postman link
+//https://documenter.getpostman.com/view/47481292/2sBYAxRpv5
